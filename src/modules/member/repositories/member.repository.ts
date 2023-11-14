@@ -10,9 +10,11 @@ export class MemberRepository {
           wallet: {
             contains: '0x',
           },
+          active: true,
         },
         select: {
           wallet: true,
+          name: true,
           role: true,
         },
       });

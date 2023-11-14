@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body, UseGuards } from '@nestjs/common';
 import { MemberService } from '../services/member.service';
 import { MinterGuard } from 'src/modules/shared/guards/minter.guard';
+import { MintNFTRequest } from '../dtos/mint-nft.request.dto';
 
 @Controller('member')
 export class MemberController {
@@ -13,7 +14,7 @@ export class MemberController {
 
   @Post('/mint')
   @UseGuards(MinterGuard)
-  async mint(@Body() body: any) {
-    console.log(body);
+  async mint(@Body() body: MintNFTRequest) {
+    return await this.memberService.mintMemberNFT(body.to);
   }
 }
