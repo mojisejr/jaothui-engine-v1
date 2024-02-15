@@ -27,6 +27,14 @@ export class MemberRepository {
         where: { wallet: memberId },
         data: { wallet: wallet },
       });
+      await prisma.payment.updateMany({
+        where: {
+          wallet: memberId,
+        },
+        data: {
+          wallet: wallet,
+        },
+      });
       return updated;
     } catch (error) {
       throw new BadRequestException(error);
