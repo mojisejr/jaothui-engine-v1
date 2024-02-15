@@ -31,6 +31,7 @@ export class MemberService {
 
     //clean undefined data
     const cleanData = mintable.filter((mintable) => mintable != undefined);
+    console.log(cleanData);
 
     return {
       mintable: cleanData,
