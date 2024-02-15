@@ -12,6 +12,14 @@ export class MemberService {
     private memberNFTService: MemberNFTService,
   ) {}
 
+  async getMemberById(memberId: string) {
+    return await this.memberRepo.getMemberById(memberId);
+  }
+
+  async updateMemberIdToWallet(memberId: string, wallet: string) {
+    return await this.memberRepo.updateMemberIdToWallet(memberId, wallet);
+  }
+
   async getMintableMembers() {
     //find member
     const members = await this.memberRepo.getMemberWithWallet();
